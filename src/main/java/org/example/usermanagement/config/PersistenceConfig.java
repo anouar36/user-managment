@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+
 @Configuration
 @EnableJpaRepositories(basePackages = "org.example.usermanagement.repository")
 @EnableTransactionManagement
@@ -37,7 +38,6 @@ public class PersistenceConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         emf.setJpaVendorAdapter(vendorAdapter);
 
-        // إعدادات Hibernate إضافية
         java.util.Properties jpaProperties = new java.util.Properties();
         jpaProperties.put("hibernate.hbm2ddl.auto", "create"); // <--- يمسح ويخلق الجداول
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");

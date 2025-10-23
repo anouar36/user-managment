@@ -10,14 +10,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.example.usermanagement") // باش Spring يلقى الـ controllers
+@ComponentScan(basePackages = "org.example.usermanagement")
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/"); // المسار ديال views
-        resolver.setSuffix(".jsp"); // أو .html إذا كتستعمل Thymeleaf
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
         return resolver;
     }
 

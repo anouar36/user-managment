@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "✅ Spring MVC + Tomcat working!";
+        return "Spring MVC + Tomcat working!";
     }
 }
