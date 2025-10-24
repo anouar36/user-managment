@@ -15,7 +15,7 @@
 
   <dependencies>
 
-    <!-- ✅ JUnit for Testing -->
+    <!-- JUnit for Testing -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -23,42 +23,56 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- ✅ Spring Core -->
+    <!-- Spring Core -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>6.1.5</version>
     </dependency>
 
-    <!-- ✅ Spring Web MVC -->
+    <!-- Spring Web MVC -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>6.1.5</version>
     </dependency>
 
-    <!-- ✅ Spring Data JPA -->
+    <!-- Spring Data JPA -->
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
       <version>3.2.5</version>
     </dependency>
 
-    <!-- ✅ Hibernate ORM -->
+    <!-- Hibernate ORM -->
     <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>6.5.2.Final</version>
     </dependency>
 
-    <!-- ✅ Jakarta Validation -->
+    <!-- Jakarta Validation API -->
     <dependency>
       <groupId>jakarta.validation</groupId>
       <artifactId>jakarta.validation-api</artifactId>
       <version>3.1.0</version>
     </dependency>
 
-    <!-- ✅ H2 Database (Testing Only) -->
+    <!-- Hibernate Validator (implementation) -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>8.0.1.Final</version>
+    </dependency>
+
+    <!-- Jakarta Expression Language API -->
+    <dependency>
+      <groupId>jakarta.el</groupId>
+      <artifactId>jakarta.el-api</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+
+    <!-- H2 Database (Testing Only) -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -66,7 +80,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- ✅ PostgreSQL Driver -->
+    <!-- PostgreSQL Driver -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -74,7 +88,7 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- ✅ Jakarta Servlet API -->
+    <!-- Jakarta Servlet API -->
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
@@ -82,7 +96,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- ✅ JSP API -->
+    <!-- JSP API -->
     <dependency>
       <groupId>jakarta.servlet.jsp</groupId>
       <artifactId>jakarta.servlet.jsp-api</artifactId>
@@ -90,7 +104,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- ✅ Jackson for JSON Serialization -->
+    <!-- Jackson for JSON -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
@@ -109,13 +123,20 @@
       <version>2.17.0</version>
     </dependency>
 
-    <!-- ✅ Logging -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.15.2</version>
+    </dependency>
+
+    <!-- Logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>2.0.12</version>
     </dependency>
 
+    <!-- Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -123,13 +144,19 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- Spring AOP -->
     <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-jsr310</artifactId>
-      <version>2.15.2</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>6.2.6</version>
     </dependency>
 
-
+    <!-- Spring Security Crypto -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-crypto</artifactId>
+      <version>6.3.0</version>
+    </dependency>
 
   </dependencies>
 
@@ -137,7 +164,7 @@
     <finalName>user-Management-System</finalName>
 
     <plugins>
-      <!-- ✅ Java Compiler Configuration -->
+      <!-- Java Compiler Configuration -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -145,26 +172,19 @@
         <configuration>
           <source>17</source>
           <target>17</target>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
 
-      <!-- ✅ WAR Packaging -->
+      <!-- WAR Packaging -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <compilerArgs>
-            <arg>-parameters</arg>
-          </compilerArgs>
         </configuration>
       </plugin>
 

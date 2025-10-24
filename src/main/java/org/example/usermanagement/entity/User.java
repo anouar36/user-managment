@@ -1,6 +1,9 @@
 package org.example.usermanagement.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,11 +21,14 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
+    @NotBlank
     @Column(nullable = false)
     private String username;
 
+    @NotBlank
+    @Email
     @Column(nullable = false)
     private String email;
 

@@ -39,7 +39,7 @@ public class PersistenceConfig {
         emf.setJpaVendorAdapter(vendorAdapter);
 
         java.util.Properties jpaProperties = new java.util.Properties();
-        jpaProperties.put("hibernate.hbm2ddl.auto", "create"); // <--- يمسح ويخلق الجداول
+        jpaProperties.put("hibernate.hbm2ddl.auto", "create");
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         emf.setJpaProperties(jpaProperties);
 

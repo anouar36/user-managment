@@ -1,6 +1,9 @@
     package org.example.usermanagement.controller;
 
+    import jakarta.validation.Valid;
     import lombok.AllArgsConstructor;
+    import org.example.usermanagement.dto.UserRequestDTO;
+    import org.example.usermanagement.dto.UserResponseDTO;
     import org.example.usermanagement.entity.User;
     import org.example.usermanagement.service.UserService;
     import org.springframework.beans.factory.annotation.Autowired;
@@ -17,29 +20,28 @@
         private final UserService userService;
 
         @GetMapping
-        public List<User> getAllUsers(){
-            return userService.getAllUsers();
+        public List<UserResponseDTO> getAllUsers(){
+            return userService.listUsers();
         }
 
         @GetMapping("/{id}")
-        public User findById(@PathVariable("id") Long id) {
-            return userService.findById(id)
-                    .orElseThrow(() -> new RuntimeException("User not found"));
+        public UserResponseDTO getUser(@PathVariable("id") Long id) {
+            return userService.getUser(id);
         }
 
         @PostMapping
-        public User save(@RequestBody User user)    {
-            return userService.save(user);
+        public UserResponseDTO createUser(@Valid @RequestBody UserRequestDTO dto)    {
+            return userService.createUser(dto);
         }
 
         @PutMapping("/{id}")
-        public User update(@PathVariable("id")  Long id, @RequestBody User user) {
-            return userService.update(id, user);
+        public UserResponseDTO updateUser(@PathVariable("id")  Long id,@Valid @RequestBody UserRequestDTO dto) {
+            return userService.updateUser(id, dto);
         }
 
         @DeleteMapping("/{id}")
         public void delete(@PathVariable Long id) {
-            userService.deleteById(id);
+            userService.deactivateUser(id);
         }
 
 
